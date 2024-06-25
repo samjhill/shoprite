@@ -3,17 +3,19 @@ from time import sleep
 import requests
 
 
+TOKEN = None # you need to go get this
+CUSTOMER_ID = 'de2bb4c7-d36e-4fe5-835a-768da2c5674b'
 class ShopRiteCart:
     def __init__(self):
         self.cart = {}
         self.api_url = 'https://storefrontgateway.brands.wakefern.com/api/stores/166/cart'
-        self.token = '5C15002FD1F3195A6B6BEB2CF5B730766F20B9D94DB122AB444E6C8F399D28DF'
+        self.token = TOKEN 
         self.headers = {
             'accept': 'application/json, text/plain, */*',
             'accept-language': 'en-US,en;q=0.9,de;q=0.8,fr;q=0.7',
-            'authorization': 'Bearer 5C15002FD1F3195A6B6BEB2CF5B730766F20B9D94DB122AB444E6C8F399D28DF',
+            'authorization': 'Bearer {TOKEN}',
             'content-type': 'application/vnd.cart.v1+json;domain-model=AddProductLineItemToCart',
-            'customerid': 'de2bb4c7-d36e-4fe5-835a-768da2c5674b',
+            'customerid': CUSTOMER_ID,
             'origin': 'https://www.shoprite.com',
             'priority': 'u=1, i',
             'referer': 'https://www.shoprite.com/',
